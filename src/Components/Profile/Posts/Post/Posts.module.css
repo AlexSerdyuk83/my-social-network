@@ -1,0 +1,15 @@
+.posts_container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.posts_container img {
+  margin: 0;
+}
+
+.posts_container p {
+  margin: 0 0 0 20px;
+  color: #303030;
+  font-size: 18px;
+  font-weight: bold;
+}

@@ -1,0 +1,32 @@
+.nav_container {
+  display: flex;
+  flex-direction: column;
+  grid-area: n;
+  background-color: #303030;
+  padding: 10px 0 0 20px;
+  border-radius: 4px;
+}
+
+.nav_item {
+  color: white;
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+.nav_item:hover {
+  cursor: pointer;
+  color: #c1c406;
+  transition: 0.4s;
+}
+
+.nav_item_set {
+  margin-top: 25px;
+}
+
+.active {
+  color: #e0265e;
+}
+
+.active:hover {
+  color: #e0265e;
+}

@@ -1,0 +1,19 @@
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.container p {
+  margin: 0 0 0 40px;
+  color: #303030;
+  font-size: 22px;
+}
+
+.list_data {
+  list-style-type: none;
+  font-size: 18px;
+}
+
+.list_data_item {
+  margin-bottom: 10px;
+}
