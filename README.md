@@ -1,6 +1,6 @@
 ### Educational project "Simple social network"
 
-#####Technologies used:
+##### Technologies used:
 * HTML/CSS;
 * React;
 

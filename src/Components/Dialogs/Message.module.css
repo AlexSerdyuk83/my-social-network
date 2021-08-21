@@ -1,0 +1,11 @@
+.message_container {
+  color: #c1c406;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 10px 10px 10px;
+  padding: 5px 5px 5px 8px;
+  max-width: 35%;
+  min-height: 40px;
+  background-color: #3b3a3a;
+  border-radius: 0 10px 10px 10px;
+}

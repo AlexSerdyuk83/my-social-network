@@ -6,7 +6,7 @@ import UserPersonalData from "./UserPersonalData";
 const UserData = () => {
   return (
     <div className={classes.container}>
-      <AvatarMain avatar={'https://cdnimg.rg.ru/img/content/177/18/63/1000s_d_850.jpg'}/>
+      <AvatarMain avatar={'https://m.buro247.ru/images/senina/original234567890-.jpg'}/>
       <UserPersonalData />
     </div>
   )

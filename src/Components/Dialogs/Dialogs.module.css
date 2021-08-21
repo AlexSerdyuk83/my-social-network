@@ -1,0 +1,54 @@
+.dialogs_container {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  height: 100%;
+}
+
+.dialogs_interlocutor_container div {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.dialogs_interlocutor_container div:hover {
+  cursor: pointer;
+  background-color: #fc8dc3;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+
+.dialogs_interlocutor_container p {
+  /*margin: 0 0 20px 0;*/
+  color: #3b3a3a;
+}
+
+.dialogs_messages_container {
+  /*position: relative;*/
+  border-left: 2px solid #3b3a3a;
+}
+
+.dialogs_messages_container form {
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  width: 97%;
+  margin: 0 10px 0 12px;
+  color: #cfcccc;
+}
+
+.dialogs_messages_container button {
+  margin-left: 85.6%;
+}
+
+.dialogs_messages_container label {
+  display: none;
+}
+
+.dialogs_interlocutor_container a {
+  text-decoration: none;
+}
+
+.activeLink div {
+  background-color: #fc8dc3;
+  border-radius: 4px;
+}

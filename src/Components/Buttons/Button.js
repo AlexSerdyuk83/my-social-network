@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./Button.module.css";
 
-const Button = () => {
+const Button = ({ addTextInField }) => {
+
   return (
     <>
-      <button className={classes.btn_style}>Send</button>
+      <button className={classes.btn_style} onClick={ addTextInField }>Send</button>
     </>
   )
 };

@@ -3,16 +3,34 @@ import BackgroundPhoto from "./BackgroundPhoto";
 import UserData from "./UserData/UserData";
 import PostsForm from "./Posts/PostsForm/PostsForm";
 import Post from "./Posts/Post/Post";
+import {addNewPostActionCreator, addUpdatePostFormActionCreator} from "../redux/state";
 
 
-const Profile = () => {
+const Profile = ({ profilePageData, dispatch }) => {
+
+  const shownPosts = profilePageData.postsData
+    .map(({ avatar, message, id  }) => <Post avatar={avatar} message={message}/>);
+
+  const updatePostForm = (inputText) => {
+    const action = addUpdatePostFormActionCreator(inputText);
+    dispatch(action);
+  };
+
+  const addNewPost = () => {
+    const action = addNewPostActionCreator();
+    dispatch(action);
+  };
+
   return (
     <div>
       <BackgroundPhoto />
       <UserData />
-      <PostsForm />
-      <Post avatar={'https://cs7.pikabu.ru/post_img/big/2018/04/07/0/1523049466170621730.png'} message={'Hi? how are you?'}/>
-      <Post avatar={'https://vjoy.cc/wp-content/uploads/2019/06/1-12.jpg'} message={'What are you doing?'}/>
+      <PostsForm
+        addTextInField={addNewPost}
+        updateForm={updatePostForm}
+        currentFormValue={profilePageData.currentPostText}
+      />
+      { shownPosts }
     </div>
   )
 };

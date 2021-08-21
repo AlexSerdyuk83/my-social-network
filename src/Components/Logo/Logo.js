@@ -1,11 +1,12 @@
 import React from "react";
 import classes from "./Logo.module.css";
+import logo from "../../images/logo.svg";
 
 const Logo = () => {
   return (
-    <>
-      <img  className={classes.logo_item} src="https://postium.ru/wp-content/uploads/2019/04/1-nike.jpg" alt="Logo"/>
-    </>
+    <div className={classes.logo_item}>
+      <img src={logo} alt="Logo"/>
+    </div>
   )
 }
 
