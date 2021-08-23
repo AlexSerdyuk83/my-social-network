@@ -3,23 +3,12 @@ import BackgroundPhoto from "./BackgroundPhoto";
 import UserData from "./UserData/UserData";
 import PostsForm from "./Posts/PostsForm/PostsForm";
 import Post from "./Posts/Post/Post";
-import {addNewPostActionCreator, addUpdatePostFormActionCreator} from "../redux/state";
 
 
-const Profile = ({ profilePageData, dispatch }) => {
+const Profile = ({ addNewPost, updatePostForm, currentFormValue, posts }) => {
 
-  const shownPosts = profilePageData.postsData
+  const shownPosts = posts
     .map(({ avatar, message, id  }) => <Post avatar={avatar} message={message}/>);
-
-  const updatePostForm = (inputText) => {
-    const action = addUpdatePostFormActionCreator(inputText);
-    dispatch(action);
-  };
-
-  const addNewPost = () => {
-    const action = addNewPostActionCreator();
-    dispatch(action);
-  };
 
   return (
     <div>
@@ -28,7 +17,7 @@ const Profile = ({ profilePageData, dispatch }) => {
       <PostsForm
         addTextInField={addNewPost}
         updateForm={updatePostForm}
-        currentFormValue={profilePageData.currentPostText}
+        currentFormValue={currentFormValue}
       />
       { shownPosts }
     </div>

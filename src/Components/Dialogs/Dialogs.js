@@ -4,8 +4,6 @@ import classes from "./Dialogs.module.css";
 import Message from "./Message";
 import {NavLink} from "react-router-dom";
 import PostsForm from "../Profile/Posts/PostsForm/PostsForm";
-import {addNewMessageActionCreator, addUpdateMessageFormValueActionCreator} from "../redux/state";
-
 
 const DialogItem = ({ id, name, avatar }) => {
   const path = `/dialogs/${id}`;
@@ -17,23 +15,13 @@ const DialogItem = ({ id, name, avatar }) => {
   );
 };
 
-const Dialogs = ({ dialogsPageData, dispatch }) => {
+const Dialogs = ({ updateDialogsForm, addNewMessage, dialogs, messages, currentFormValue  }) => {
 
-  const shownDialogsData = dialogsPageData.dialogsData
+  const shownDialogsData = dialogs
     .map(({id, name, avatar}) => <DialogItem id={id} name={name} avatar={avatar} />);
 
-  const shownMessagesData = dialogsPageData.messagesData
+  const shownMessagesData = messages
     .map(({ message }) => <Message message={message} />);
-
-  const updateDialogsForm = (inputText) => {
-    const action = addUpdateMessageFormValueActionCreator(inputText)
-    dispatch(action);
-  };
-
-  const addNewMessage = () => {
-    const action = addNewMessageActionCreator();
-    dispatch(action);
-  };
 
   return (
     <div className={classes.dialogs_container}>
@@ -45,11 +33,10 @@ const Dialogs = ({ dialogsPageData, dispatch }) => {
         <PostsForm
           updateForm={updateDialogsForm}
           addTextInField={addNewMessage}
-          currentFormValue={dialogsPageData.currentMessageText}
+          currentFormValue={currentFormValue}
         />
       </div>
     </div>
-
   )
 };
 
