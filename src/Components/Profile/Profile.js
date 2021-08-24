@@ -5,9 +5,9 @@ import PostsForm from "./Posts/PostsForm/PostsForm";
 import Post from "./Posts/Post/Post";
 
 
-const Profile = ({ addNewPost, updatePostForm, currentFormValue, posts }) => {
+const Profile = (props) => {
 
-  const shownPosts = posts
+  const shownPosts = props.profilePageData.postsData
     .map(({ avatar, message, id  }) => <Post avatar={avatar} message={message}/>);
 
   return (
@@ -15,9 +15,9 @@ const Profile = ({ addNewPost, updatePostForm, currentFormValue, posts }) => {
       <BackgroundPhoto />
       <UserData />
       <PostsForm
-        addTextInField={addNewPost}
-        updateForm={updatePostForm}
-        currentFormValue={currentFormValue}
+        addTextInField={props.addNewPost}
+        updateForm={props.updatePostForm}
+        currentFormValue={props.profilePageData.currentPostText}
       />
       { shownPosts }
     </div>

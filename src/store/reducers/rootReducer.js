@@ -1,11 +1,9 @@
-import {combineReducers, createStore} from "redux";
+import {combineReducers} from "redux";
 import {profilePageReducer} from "./profilePageReducer";
 import {dialogsPageReducer} from "./dialogsPageReducer";
 
 
-const reducers = combineReducers({
+export const rootReducer = combineReducers({
   profilePageData: profilePageReducer,
   dialogsPageData: dialogsPageReducer
 });
-
-export const store = createStore(reducers);

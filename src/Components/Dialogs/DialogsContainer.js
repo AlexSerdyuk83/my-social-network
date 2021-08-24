@@ -1,27 +1,12 @@
-import React from "react";
-import {addNewMessageActionCreator, addUpdateMessageFormValueActionCreator} from "../../redux/dialogsPageReducer";
 import Dialogs from "./Dialogs";
+import {connect} from "react-redux";
+import {mapStateToPropsGenerator} from "../../store/mapStateToPropsGenerator";
+import {mapDispatchToPropsGenerator} from "../../store/mapDispatchToPropsGenerator";
 
 
-const DialogsContainer = ({ dialogsPageData, dispatch }) => {
+const mapStateToProps = mapStateToPropsGenerator('Dialogs');
+const mapDispatchToProps = mapDispatchToPropsGenerator('Dialogs');
 
-  const onUpdateDialogsForm = (inputText) => {
-    const action = addUpdateMessageFormValueActionCreator(inputText)
-    dispatch(action);
-  };
-
-  const onAddNewMessage = () => {
-    const action = addNewMessageActionCreator();
-    dispatch(action);
-  };
-
-  return <Dialogs
-    updateDialogsForm={onUpdateDialogsForm}
-    addNewMessage={onAddNewMessage}
-    dialogs={dialogsPageData.dialogsData}
-    messages={dialogsPageData.messagesData}
-    currentFormValue={dialogsPageData.currentMessageText}
-  />
-};
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

@@ -1,26 +1,12 @@
-import React from "react";
-import {addNewPostActionCreator, addUpdatePostFormActionCreator} from "../../redux/profilePageReducer";
+import {connect} from "react-redux";
 import Profile from "./Profile";
+import {mapStateToPropsGenerator} from "../../store/mapStateToPropsGenerator";
+import {mapDispatchToPropsGenerator} from "../../store/mapDispatchToPropsGenerator";
 
 
-const ProfileContainer = ({ profilePageData, dispatch }) => {
+const mapStateToProps = mapStateToPropsGenerator('Profile');
+const mapDispatchToProps = mapDispatchToPropsGenerator('Profile');
 
-  const onUpdatePostForm = (inputText) => {
-    const action = addUpdatePostFormActionCreator(inputText);
-    dispatch(action);
-  };
-
-  const onAddNewPost = () => {
-    const action = addNewPostActionCreator();
-    dispatch(action);
-  };
-
-  return <Profile
-    addNewPost={onAddNewPost}
-    updatePostForm={onUpdatePostForm}
-    posts={profilePageData.postsData}
-    currentFormValue={profilePageData.currentPostText}
-  />
-};
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 export default ProfileContainer;

@@ -15,12 +15,12 @@ const DialogItem = ({ id, name, avatar }) => {
   );
 };
 
-const Dialogs = ({ updateDialogsForm, addNewMessage, dialogs, messages, currentFormValue  }) => {
+const Dialogs = (props) => {
 
-  const shownDialogsData = dialogs
+  const shownDialogsData = props.dialogsPageData.dialogsData
     .map(({id, name, avatar}) => <DialogItem id={id} name={name} avatar={avatar} />);
 
-  const shownMessagesData = messages
+  const shownMessagesData = props.dialogsPageData.messagesData
     .map(({ message }) => <Message message={message} />);
 
   return (
@@ -31,9 +31,9 @@ const Dialogs = ({ updateDialogsForm, addNewMessage, dialogs, messages, currentF
       <div className={classes.dialogs_messages_container}>
         { shownMessagesData }
         <PostsForm
-          updateForm={updateDialogsForm}
-          addTextInField={addNewMessage}
-          currentFormValue={currentFormValue}
+          updateForm={props.updateDialogsForm}
+          addTextInField={props.addNewMessage}
+          currentFormValue={props.dialogsPageData.currentMessageText}
         />
       </div>
     </div>

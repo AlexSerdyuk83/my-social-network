@@ -1,9 +1,4 @@
-const ADD_POST_TYPE = 'ADD_POST';
-const UPDATE_POST_FORM_VALUE_TYPE = 'UPDATE-POST-FORM-VALUE';
-
-export const addNewPostActionCreator = () => ({ type: ADD_POST_TYPE });
-
-export const addUpdatePostFormActionCreator = (value) => ({ type: UPDATE_POST_FORM_VALUE_TYPE, value: value });
+import {ADD_POST_TYPE, UPDATE_POST_FORM_VALUE_TYPE} from "../actions/actionTypes";
 
 const initialState = {
   postsData: [
@@ -14,20 +9,22 @@ const initialState = {
 };
 
 export const profilePageReducer = (state = initialState, action) => {
+  let stateCopy = {};
+  Object.assign(stateCopy, state);
   switch (action.type) {
     case UPDATE_POST_FORM_VALUE_TYPE:
-      state.currentPostText = action.value;
-      return state;
+      stateCopy.currentPostText = action.value;
+      return stateCopy;
     case ADD_POST_TYPE:
       const newPost = {
         id: 3,
         avatar: 'https://www.meme-arsenal.com/memes/96ab6670dd7f1adeb25bfd388abbeb93.jpg',
         message: state.currentPostText,
       };
-      state.postsData.push(newPost);
-      state.currentPostText = '';
-      return state;
+      stateCopy.postsData.push(newPost);
+      stateCopy.currentPostText = '';
+      return stateCopy;
     default:
-      return state;
+      return stateCopy;
   }
 };

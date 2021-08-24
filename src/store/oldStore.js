@@ -1,7 +1,7 @@
 import {profilePageReducer} from "./profilePageReducer";
 import {dialogsPageReducer} from "./dialogsPageReducer";
 
-export const store = {
+const oldStore = {
   _state: {
     profilePageData: {
       postsData: [

@@ -14,35 +14,27 @@ import Home from "./Components/Home/Home";
 import {BrowserRouter, Route} from "react-router-dom";
 
 
-const App = ({ state, dispatch }) => {
+const App = () => {
 
-  const { profilePageData, dialogsPageData } = state;
+  //const {profilePageData, dialogsPageData} = state;
 
   return (
-    <BrowserRouter>
-      <div className="container">
-        <Header/>
-        <Navigation/>
-        <div className={'content'}>
-          <Route exact path={'/'} render={() => <Home />}/>
-          <Route path={'/profile'} render={() => <ProfileContainer
-            profilePageData={profilePageData}
-            dispatch={dispatch}
-          />}/>
-          <Route path={'/dialogs'} render={() => <DialogsContainer
-            dialogsPageData={dialogsPageData}
-            dispatch={dispatch}
-          />}/>
-          <Route path={'/friends'} component={Friends}/>
-          <Route path={'/news'} component={News}/>
-          <Route path={'/photo'} component={Photo}/>
-          <Route path={'/video'} component={Video}/>
-          <Route path={'/music'} component={Music}/>
-          <Route path={'/settings'} component={Settings}/>
-        </div>
-        <Footer/>
+    <div className="container">
+      <Header/>
+      <Navigation/>
+      <div className={'content'}>
+        <Route exact path={'/'} render={() => <Home/>}/>
+        <Route path={'/profile'} render={() => <ProfileContainer/>}/>
+        <Route path={'/dialogs'} render={() => <DialogsContainer/>}/>
+        <Route path={'/friends'} component={Friends}/>
+        <Route path={'/news'} component={News}/>
+        <Route path={'/photo'} component={Photo}/>
+        <Route path={'/video'} component={Video}/>
+        <Route path={'/music'} component={Music}/>
+        <Route path={'/settings'} component={Settings}/>
       </div>
-    </BrowserRouter>
+      <Footer/>
+    </div>
   );
 }
 

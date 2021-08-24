@@ -1,11 +1,4 @@
-const ADD_MESSAGE_TYPE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_FORM_VALUE_TYPE = 'UPDATE-MESSAGE-FORM-VALUE';
-
-export const addNewMessageActionCreator = () => ({ type: ADD_MESSAGE_TYPE });
-
-export const addUpdateMessageFormValueActionCreator = (value) => (
-  { type: UPDATE_MESSAGE_FORM_VALUE_TYPE, value: value }
-);
+import {ADD_MESSAGE_TYPE, UPDATE_MESSAGE_FORM_VALUE_TYPE} from "../actions/actionTypes";
 
 const initialState = {
   dialogsData: [
@@ -22,16 +15,19 @@ const initialState = {
 };
 
 export const dialogsPageReducer = (state = initialState, action) => {
+  let stateCopy = {};
+  Object.assign(stateCopy, state);
+
   switch (action.type) {
     case UPDATE_MESSAGE_FORM_VALUE_TYPE:
-      state.currentMessageText = action.value;
-      return state;
+      stateCopy.currentMessageText = action.value;
+      return stateCopy;
     case ADD_MESSAGE_TYPE:
       const newMessage = {id: 1, message: state.currentMessageText};
-      state.messagesData.push(newMessage);
-      state.currentMessageText = '';
-      return state;
+      stateCopy.messagesData.push(newMessage);
+      stateCopy.currentMessageText = '';
+      return stateCopy;
     default:
-      return state;
+      return stateCopy;
   }
 };

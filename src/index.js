@@ -1,24 +1,27 @@
-import { store } from "./redux/redux-store";
+import {store} from "./store/store";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
 
 
-const rerenderEntireTree = (state) => {
-  ReactDOM.render(
+ReactDOM.render(
+  <BrowserRouter>
     <React.StrictMode>
-      <App state={state}
-           dispatch={store.dispatch.bind(store)}/>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-};
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </React.StrictMode>
+  </BrowserRouter>,
+  document.getElementById('root')
+);
 
-rerenderEntireTree(store.getState());
-
+// rerenderEntireTree(store.getState());
+//
 // store.subscribe(rerenderEntireTree) вызывается при использовании самописного стора
-
-store.subscribe(() => {
-  const state = store.getState()
-  rerenderEntireTree(state);
-});
+//
+// store.subscribe(() => {
+//   const state = store.getState()
+//   rerenderEntireTree(state);
+// });
