@@ -15,8 +15,15 @@ const initialState = {
 };
 
 export const dialogsPageReducer = (state = initialState, action) => {
-  let stateCopy = {};
-  Object.assign(stateCopy, state);
+  // let stateCopy = {};
+  // Object.assign(stateCopy, state);
+
+  const stateCopy = {
+    ...state,
+    dialogsData: [...state.dialogsData],
+    messagesData: [...state.messagesData],
+    currentMessageText: state.currentMessageText
+  }
 
   switch (action.type) {
     case UPDATE_MESSAGE_FORM_VALUE_TYPE:

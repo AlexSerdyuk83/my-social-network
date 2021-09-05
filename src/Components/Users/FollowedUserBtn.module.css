@@ -1,0 +1,19 @@
+.container {
+  margin-top: 13px;
+}
+
+.container_btn {
+  width: 80px;
+  padding: 3px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3b3a3a;
+
+  color: #c1c406;
+  letter-spacing: 1px;
+}
+
+.container_btn:hover {
+  cursor: pointer;
+  font-weight: bold;
+}

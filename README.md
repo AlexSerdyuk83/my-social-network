@@ -1,8 +1,8 @@
 ### Educational project "Simple social network"
 
 ##### Technologies used:
-* HTML/CSS;
-* React;
+* HTML/CSS/JS;
+* React/Redux;
 
 #### Installing and start the project:
 * git clone https: ***https://github.com/AlexSerdyuk83/my-social-network.git***

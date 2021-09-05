@@ -32,7 +32,7 @@ const PostsForm = ({ updateForm, currentFormValue, addTextInField }) => {
         value={currentFormValue}
         onChange={updateValueInForm}
       />
-      <Button addTextInField={addTextInField} />
+      <Button callback={addTextInField} value={'Send'}/>
     </form>
   );
 };

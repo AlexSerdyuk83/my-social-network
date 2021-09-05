@@ -1,3 +1,5 @@
+import React from "react";
+import {Route} from "react-router-dom";
 import './App.css';
 import Header from "./Components/Header/Header";
 import Navigation from "./Components/Navigation/Navigation";
@@ -11,7 +13,7 @@ import Video from "./Components/Video/Video";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import Home from "./Components/Home/Home";
-import {BrowserRouter, Route} from "react-router-dom";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 
 const App = () => {
@@ -32,10 +34,11 @@ const App = () => {
         <Route path={'/video'} component={Video}/>
         <Route path={'/music'} component={Music}/>
         <Route path={'/settings'} component={Settings}/>
+        <Route path={'/users'} render={() => <UsersContainer/>}/>
       </div>
       <Footer/>
     </div>
   );
-}
+};
 
 export default App;

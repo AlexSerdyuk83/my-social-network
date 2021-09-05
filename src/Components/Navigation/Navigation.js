@@ -13,6 +13,7 @@ const Navigation = () => {
       <div className={classes.nav_item}><NavLink to={'/video'} activeClassName={classes.activeLink}>Video</NavLink></div>
       <div className={classes.nav_item}><NavLink to={'/music'} activeClassName={classes.activeLink}>Music</NavLink></div>
       <div className={`${classes.nav_item} ${classes.nav_item_set}`}><NavLink to={'/settings'} activeClassName={classes.activeLink}>Settings</NavLink></div>
+      <div className={`${classes.nav_item} ${classes.nav_item_set}`}><NavLink to={'/users'} activeClassName={classes.activeLink}>Users</NavLink></div>
     </nav>
   );
 }

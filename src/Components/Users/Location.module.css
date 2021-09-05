@@ -1,0 +1,8 @@
+.container {
+  color: #737272;
+  font-style: italic;
+}
+
+.container p {
+  margin: 0 0 5px 0;
+}

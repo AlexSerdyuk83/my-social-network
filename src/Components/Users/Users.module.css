@@ -1,0 +1,34 @@
+.users_container {
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #dbd9d9;
+}
+
+.users_item {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #c3c9c5;
+}
+
+.users_item img {
+  width: 80px;
+  height: 80px;
+  margin: 0 0 10px 0;
+}
+
+.users_item_name {
+  width: 430px;
+  margin: 0 10px 0 10px;
+  padding-left: 10px;
+}
+
+.users_item_name p {
+  margin: 0;
+  color: #3b3a3a;
+}
+
+.users_item_data p {
+  margin: 0;
+}

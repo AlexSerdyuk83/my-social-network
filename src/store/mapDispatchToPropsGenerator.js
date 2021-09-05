@@ -2,6 +2,9 @@ import {updatePostFormActionCreator} from "./actionCreators/updatePostFormAction
 import {addNewPostActionCreator} from "./actionCreators/addNewPostActionCreator";
 import {updateMessageFormValueActionCreator} from "./actionCreators/updateMessageFormValueActionCreator";
 import {addNewMessageActionCreator} from "./actionCreators/addNewMessageActionCreator";
+import {followActionCreator} from "./actionCreators/followActionCreator";
+import {unfollowActionCreator} from "./actionCreators/unfollowActionCreator";
+import {setUsersActionCreator} from "./actionCreators/setUsersActionCreator";
 
 export const mapDispatchToPropsGenerator = (component) => {
   switch (component) {
@@ -15,6 +18,13 @@ export const mapDispatchToPropsGenerator = (component) => {
         updateDialogsForm: (value) => dispatch(updateMessageFormValueActionCreator(value)),
         addNewMessage: () => dispatch(addNewMessageActionCreator())
       });
+    case 'Users':
+      debugger
+      return (dispatch) => ({
+        follow: (userId) => dispatch(unfollowActionCreator(userId)),
+        unfollow: (userId) => dispatch(followActionCreator(userId)),
+        setUsers: (users) => dispatch(setUsersActionCreator(users))
+      })
     default: return undefined;
   }
 };

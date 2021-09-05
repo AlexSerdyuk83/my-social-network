@@ -8,6 +8,12 @@ export const mapStateToPropsGenerator = (component) => {
       return (state) => ({
         dialogsPageData: state.dialogsPageData
       });
-    default: return  undefined;
+    case 'Users':
+      debugger
+      return (state) => ({
+        usersPageData: state.usersPageData
+      })
+    default:
+      return  undefined;
   }
 };

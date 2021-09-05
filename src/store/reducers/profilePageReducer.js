@@ -9,8 +9,13 @@ const initialState = {
 };
 
 export const profilePageReducer = (state = initialState, action) => {
-  let stateCopy = {};
-  Object.assign(stateCopy, state);
+  // let stateCopy = {};
+  // Object.assign(stateCopy, state);
+  const stateCopy = {
+    ...state,
+    postsData: [...state.postsData],
+    currentPostText: state.currentPostText
+  }
   switch (action.type) {
     case UPDATE_POST_FORM_VALUE_TYPE:
       stateCopy.currentPostText = action.value;
